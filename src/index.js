@@ -6,17 +6,14 @@ import PropTypes from 'prop-types'
 export const Tutorial = (props) => {
   const [step, setStep] = useState(0)
   const [elements, setElements] = useState([...props.elements])
+  const [elementPosition, setElementPosition] = useState([])
+  const [elementZIndex, setElementZIndex] = useState([])
   const [descriptions, setDescriptions] = useState([...props.descriptions])
   const [openTutorial, setOpenTutorial] = useState(props.openTutorial ?? false)
   const ref = useRef()
-
-  let prevElementPosition
-  let prevElementZIndex
-
   const changeTutorialDescriptionPosition = (currentStep = 0) => {
     const currentElement = document.getElementById(elements[currentStep])
-    prevElementPosition = currentElement.style.position
-    prevElementZIndex = currentElement.style.zIndex
+
     currentElement.style.position = 'relative'
     currentElement.style.zIndex = '9999'
 
@@ -42,8 +39,8 @@ export const Tutorial = (props) => {
     // Clear previous element added style
     if (currentStep !== step) {
       const prevElement = document.getElementById(elements[step])
-      prevElement.style.position = prevElementPosition
-      prevElement.style.zIndex = prevElementZIndex
+      prevElement.style.position = elementPosition[step]
+      prevElement.style.zIndex = elementZIndex[step]
     }
 
     setStep(currentStep)
@@ -55,14 +52,22 @@ export const Tutorial = (props) => {
   }
 
   const clearAllStyle = () => {
-    const element = document.getElementById(elements[step])
-    element.style.position = prevElementPosition
-    element.style.zIndex = prevElementZIndex
+    elements.forEach((id, index) => {
+      const element = document.getElementById(id)
+      element.style.position = elementPosition[index]
+      element.style.zIndex = elementZIndex[index]
+    })
     setOpenTutorial(false)
     props.onClose()
   }
 
   useEffect(() => {
+    setElementPosition([
+      ...elements.map((id) => document.getElementById(id).style.position)
+    ])
+    setElementZIndex([
+      ...elements.map((id) => document.getElementById(id).style.zIndex)
+    ])
     props.openTutorial && changeTutorialDescriptionPosition()
   }, [props.openTutorial])
 
