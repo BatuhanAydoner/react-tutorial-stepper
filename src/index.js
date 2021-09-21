@@ -67,8 +67,7 @@ export const Tutorial = (props) => {
   }
 
   useEffect(() => {
-    /* const windowScreenWidth = window.innerWidth > 768;
-    openTutorial && windowScreenWidth &&  */ changeTutorialDescriptionPosition()
+    props.openTutorial && changeTutorialDescriptionPosition()
   }, [])
 
   return openTutorial ? (
