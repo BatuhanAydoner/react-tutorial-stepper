@@ -15,8 +15,6 @@ export const Tutorial = (props) => {
 
   const changeTutorialDescriptionPosition = (currentStep = 0) => {
     const currentElement = document.getElementById(elements[currentStep])
-    prevElementPosition = currentElement.style.position
-    prevElementZIndex = currentElement.style.zIndex
 
     currentElement.style.position = 'relative'
     currentElement.style.zIndex = '9999'
@@ -47,6 +45,9 @@ export const Tutorial = (props) => {
       prevElement.style.zIndex = prevElementZIndex
     }
 
+    prevElementPosition = currentElement.style.position
+    prevElementZIndex = currentElement.style.zIndex
+
     setStep(currentStep)
     window.scroll({
       top: currentElement.offsetTop - currentElement.offsetHeight / 2,
@@ -58,8 +59,8 @@ export const Tutorial = (props) => {
   const clearAllStyle = () => {
     elements.forEach((id) => {
       const element = document.getElementById(id)
-      element.style.position = ''
-      element.style.zIndex = ''
+      element.style.position = prevElementPosition
+      element.style.zIndex = prevElementZIndex
     })
     setOpenTutorial(false)
   }
