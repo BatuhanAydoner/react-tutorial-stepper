@@ -63,6 +63,7 @@ export const Tutorial = (props) => {
       element.style.zIndex = prevElementZIndex
     })
     setOpenTutorial(false)
+    props.onClose()
   }
 
   useEffect(() => {
