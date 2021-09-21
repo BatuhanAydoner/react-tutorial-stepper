@@ -70,7 +70,7 @@ export const Tutorial = (props) => {
     props.openTutorial && changeTutorialDescriptionPosition()
   }, [])
 
-  return openTutorial ? (
+  return props.openTutorial ? (
     <div>
       <div className={styles.Wrapper}></div>
       <div

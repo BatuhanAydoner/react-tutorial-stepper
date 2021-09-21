@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Tutorial } from 'react-tutorial-stepper'
+import 'react-tutorial-stepper/dist/index.css'
 
 const App = () => {
   return (
