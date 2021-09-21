@@ -15,6 +15,9 @@ export const Tutorial = (props) => {
 
   const changeTutorialDescriptionPosition = (currentStep = 0) => {
     const currentElement = document.getElementById(elements[currentStep])
+    const prevElement = document.getElementById(elements[step])
+    prevElementPosition = prevElement.style.position
+    prevElementZIndex = prevElement.style.zIndex
 
     currentElement.style.position = 'relative'
     currentElement.style.zIndex = '9999'
@@ -40,13 +43,9 @@ export const Tutorial = (props) => {
 
     // Clear previous element added style
     if (currentStep !== step) {
-      const prevElement = document.getElementById(elements[step])
       prevElement.style.position = prevElementPosition
       prevElement.style.zIndex = prevElementZIndex
     }
-
-    prevElementPosition = currentElement.style.position
-    prevElementZIndex = currentElement.style.zIndex
 
     setStep(currentStep)
     window.scroll({
