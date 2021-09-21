@@ -57,11 +57,9 @@ export const Tutorial = (props) => {
   }
 
   const clearAllStyle = () => {
-    elements.forEach((id) => {
-      const element = document.getElementById(id)
-      element.style.position = prevElementPosition
-      element.style.zIndex = prevElementZIndex
-    })
+    const element = document.getElementById(elements[step])
+    element.style.position = prevElementPosition
+    element.style.zIndex = prevElementZIndex
     setOpenTutorial(false)
     props.onClose()
   }
