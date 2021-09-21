@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
+import 'react-tutorial-stepper/dist/index.css'
 import PropTypes from 'prop-types'
 
 export const Tutorial = (props) => {
