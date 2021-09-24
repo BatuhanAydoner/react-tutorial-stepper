@@ -1,8 +1,10 @@
 # react-tutorial-stepper
 
-> A Tutorial Stepper component for React
+> A Tutorial Stepper component for React Applications
 
 [![NPM](https://img.shields.io/npm/v/react-tutorial-stepper.svg)](https://www.npmjs.com/package/react-tutorial-stepper) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+When you make updates for your React application, you can show your customers what' s news step by step.
 
 ## Install
 
