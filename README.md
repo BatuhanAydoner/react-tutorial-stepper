@@ -15,12 +15,20 @@ npm install --save react-tutorial-stepper
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-tutorial-stepper'
-import 'react-tutorial-stepper/dist/index.css'
+import Tutorial from 'react-tutorial-stepper'
 
-class Example extends Component {
+class ReactTutorialStepper extends Component {
   render() {
-    return <MyComponent />
+    return (
+      <Tutorial
+        openTutorial={true}
+        id={['id']}
+        description={['This is a description.']}
+        prevButtonTitle={'Prev'}
+        nextButtonTitle={'Next'}
+        lastStepButtonTitle={'Finish'}
+      />
+    )
   }
 }
 ```
